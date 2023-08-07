@@ -21,16 +21,16 @@
     {% if "guess" in session: %}
         {% if session["guess"] == session["num"]%}
             <div>
-                <h1>You guessed correct!</h1>
+                <h1 style="background-color: limeGreen ;">You guessed correct!</h1>
                 <a href="/reset">Play Again?</a>
             </div>
         {% elif session["guess"] < session["num"] %}
             <div>
-                <h1>Guess Too Low!!</h1>
+                <h1 style="background-color: red; width:200px">Guess Too Low!!</h1>
             </div>
         {% else %}
             <div>
-                <h1>Guess Too High!!</h1>
+                <h1 style="background-color:red; width:200px">Guess Too High!!</h1>
             </div>
         {% endif %}
     {% endif %}
