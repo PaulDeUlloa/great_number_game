@@ -4,27 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Great Number Game</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body style="text-align: center;">
     <h1>Welcome to the Great Number Game!</h1>
     <h2> I am thinking of a number between 1 and 100</h2>
     <form action="/guess" method="POST">
         <div>
-            <label>Take a guess!</label>
-            <input type="text" style="width: 7%;" name="guess">
+            <div>
+                <label style="font-size: x-large;">Take a guess!</label>
+            </div>
+            <input type="text" style="margin: 20px 0px; width: 7%; " name="guess">
         </div>
-            <button style="background-color: rgb(255, 255, 255); border: black 2px solid; box-shadow: 2px 2px 1px 1px black;">Submit</button>
+        <button style="background-color: rgb(118, 202, 187); border: black 2px solid; box-shadow: 2px 2px 1px 1px black;">Submit</button>
     </form>
-    {% if 'guess' in session: %}
-        {% if session['guess'] == session['num']%}
+    {% if "guess" in session: %}
+        {% if session["guess"] == session["num"]%}
             <div>
                 <h1>You guessed correct!</h1>
                 <a href="/reset">Play Again?</a>
             </div>
-        {% elif session['guess'] < session['num'] %}
+        {% elif session["guess"] < session["num"] %}
             <div>
                 <h1>Guess Too Low!!</h1>
             </div>
+        {% else %}
+            <div>
+                <h1>Guess Too High!!</h1>
+            </div>
+        {% endif %}
+    {% endif %}
 
 </body>
 </html>
