@@ -5,7 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Great Number Game</title>
 </head>
-<body>
-    
+<body style="text-align: center;">
+    <h1>Welcome to the Great Number Game!</h1>
+    <h2> I am thinking of a number between 1 and 100</h2>
+    <form action="/guess" method="POST">
+        <div>
+            <label>Take a guess!</label>
+            <input type="text" style="width: 7%;" name="guess">
+        </div>
+            <button style="background-color: rgb(255, 255, 255); border: black 2px solid; box-shadow: 2px 2px 1px 1px black;">Submit</button>
+    </form>
+    {% if 'guess' in session: %}
+        {% if session['guess'] == session['num']%}
+            <div>
+                <h1>You guessed correct!</h1>
+                <a href="/reset">Play Again?</a>
+            </div>
+        {% elif session['guess'] < session['num'] %}
+            <div>
+                <h1>Guess Too Low!!</h1>
+            </div>
+
 </body>
 </html>
